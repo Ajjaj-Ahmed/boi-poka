@@ -1,5 +1,5 @@
 import { useLoaderData, useParams } from "react-router-dom";
-import { addToStoreReadList } from "../../Utility/AddToDb";
+import { addToStoreReadList, addToStoreWishList } from "../../Utility/AddToDb";
 
 
 const BookDetails = () => {
@@ -15,6 +15,10 @@ const BookDetails = () => {
 
     const handleMarkAsRead =(id)=>{
         addToStoreReadList(id);
+    }
+
+    const handleWishList = (id) =>{
+           addToStoreWishList(id);
     }
 
     return (
@@ -54,7 +58,7 @@ const BookDetails = () => {
 
                 <div className="flex gap-3 items-center">
                     <button onClick={()=>handleMarkAsRead(bookId)} className="btn btn-outline">Read</button>
-                    <button className="btn btn-outline">Wish-List</button>
+                    <button onClick={()=>handleWishList(bookId)} className="btn btn-outline">Wish-List</button>
                 </div>
 
             </div>
